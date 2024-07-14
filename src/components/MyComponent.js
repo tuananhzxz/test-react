@@ -1,9 +1,41 @@
 import React from "react";
 class MyComponent extends React.Component {
+
+    state = {
+        name : "Tuan Anh", 
+        address : "Ha nam"
+    }
+    
+    handleClick(event) {
+        console.log("OK")
+        console.log("This is : ", this.state.name)
+        this.setState({
+            name : "eric"
+        })
+    }
+
+    handleOnchangeInput = (event) => {
+        this.setState({
+            name : event.target.value
+        })
+    }
+
+    handleOnSubmit = (event) => {
+        event.preventDefault();
+        console.log(this.state);
+    }
+
     render() {
         return (
             <div>
-                Hello
+                My name is {this.state.name}
+                <button onClick={(event) => { this.handleClick(event) }}>Click di</button>
+                <form onSubmit={(event) => this.handleOnSubmit(event)}>
+                    <input type="text" onChange={(event) => this.handleOnchangeInput(event)}>
+
+                    </input>
+                    <button>submit</button>
+                </form>     
             </div>
         );
     }
