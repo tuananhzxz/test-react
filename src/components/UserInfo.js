@@ -3,7 +3,8 @@ import React from "react";
 class UserInfo extends React.Component {
     state = {
         name : "Tuan Anh", 
-        address : "Ha nam"
+        address : "Ha nam",
+        age : 30
     }
     
     handleClick(event) {
@@ -29,6 +30,11 @@ class UserInfo extends React.Component {
     handleOnSubmit = (event) => {
         event.preventDefault();
         console.log(this.state);
+        this.props.handleAddUser({
+            id : Math.floor((Math.random()*100) + 1) + '-random',
+            name : this.state.name,
+            age : 100
+        });
     }
     
     render() {
