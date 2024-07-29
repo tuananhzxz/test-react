@@ -10,6 +10,9 @@ import {
   import { FaTachometerAlt, FaGem, FaList, FaGithub, FaRegLaughWink, FaHeart } from 'react-icons/fa';
   import sidebarBg from '../../assets/bg2.jpg';
   import 'react-pro-sidebar/dist/css/styles.css';
+  import { FaReact } from "react-icons/fa";
+  import { RxDashboard } from "react-icons/rx";
+import { Link } from 'react-router-dom';
   
 const SideBar = ({ image, collapsed, toggled, handleToggleSidebar }) => {
     return (
@@ -34,29 +37,30 @@ const SideBar = ({ image, collapsed, toggled, handleToggleSidebar }) => {
             whiteSpace: 'nowrap',
           }}
         >
-            Tuan anh dz
+            <FaReact size={'3em'} color={"00bff"} />
+            <span>Tuan Anh App</span>
         </div>
       </SidebarHeader>
 
       <SidebarContent>
         <Menu iconShape="circle">
           <MenuItem
-            icon={<FaTachometerAlt />}
-            suffix={<span className="badge red">new</span>}
+            icon={<RxDashboard /> }
+            // suffix={<span className="badge red">new</span>}
           >
-            dashboard
+            Dashboard
+            <Link to="/admin"></Link>
           </MenuItem>
-          <MenuItem icon={<FaGem />}> components</MenuItem>
         </Menu>
         <Menu iconShape="circle">
           <SubMenu
             suffix={<span className="badge yellow">3</span>}
-            title="withSuffix"
-            icon={<FaRegLaughWink />}
+            title="Features"
+            icon={<FaGem />}
           >
-            <MenuItem> 1</MenuItem>
-            <MenuItem> 2</MenuItem>
-            <MenuItem> 3</MenuItem>
+            <MenuItem> Quản lý user <Link to="/admin/manage-user"></Link></MenuItem>
+            <MenuItem> Quản lý bài quizz</MenuItem>
+            <MenuItem> Quản lý câu hỏi</MenuItem>
           </SubMenu>
         </Menu>
       </SidebarContent>
@@ -69,14 +73,14 @@ const SideBar = ({ image, collapsed, toggled, handleToggleSidebar }) => {
           }}
         >
           <a
-            href="https://github.com/azouaoui-med/react-pro-sidebar"
+            href=""
             target="_blank"
             className="sidebar-btn"
             rel="noopener noreferrer"
           >
             <FaGithub />
             <span style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
-                viewSource
+                Tuan anhdz
             </span>
           </a>
         </div>
